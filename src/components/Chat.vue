@@ -1,7 +1,7 @@
 <template>
   <div>
     <h5>Chaaaat</h5>
-    <beautiful-chat />
+    
   </div>
 </template>
 
