@@ -7,7 +7,7 @@
       <Sidebar />
     </div>
     <div class="center">
-      <div id="content"></div>
+      <div id="content" />
     </div>
     <div class="right">
       <Chat />
@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import TopNav from './TopNav'
-import Sidebar from './Sidebar'
-import Chat from './Chat'
+import TopNav from '../components/TopNav'
+import Sidebar from '../components/Sidebar'
+import Chat from '../components/Chat'
 
 export default {
   name: 'Dashboard',

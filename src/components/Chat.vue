@@ -1,7 +1,6 @@
 <template>
   <div>
     <h5>Chaaaat</h5>
-    
   </div>
 </template>
 
