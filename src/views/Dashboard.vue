@@ -7,10 +7,12 @@
       <Sidebar />
     </div>
     <div class="center">
-      <div id="content" />
+      <transition name="fade">
+        <router-view />
+      </transition>
     </div>
     <div class="right">
-      <Chat />
+      <ChatScreen />
     </div>
   </div>
 </template>
@@ -18,26 +20,30 @@
 <script>
 import TopNav from '../components/TopNav'
 import Sidebar from '../components/Sidebar'
-import Chat from '../components/Chat'
+import ChatScreen from '../components/ChatScreen'
 
 export default {
   name: 'Dashboard',
   components: {
-    TopNav, Sidebar, Chat
+    TopNav, Sidebar, ChatScreen
   },
   methods: {
 
   }
 }
+
+
+
 </script>
 
 <style>
 .parent {
   display: grid;
-  grid-template-columns: 2fr 6fr 3fr;
+  grid-template-columns: 0fr 6fr 0fr;
   grid-template-rows: 64px 100%;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  margin: 0px;
 }
 
 .top { grid-area: 1 / 1 / 2 / 6; }

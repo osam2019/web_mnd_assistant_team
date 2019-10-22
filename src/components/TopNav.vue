@@ -4,9 +4,19 @@
     class="el-menu-demo"
     mode="horizontal"
     @select="handleSelect"
+    background-color="#3498db"
+    text-color="#fff"
+    active-text-color="#ffeaa7"
   >
     <el-menu-item index="1">
-      Processing Center
+      <template slot="title">
+        <div style="display:inline-block;"><el-image
+        style="width: 128px; height: 48px"
+        src="/mnd_logo.png"
+        fit="contain"
+        >
+      </el-image></div>
+      </template>
     </el-menu-item>
     <el-submenu index="2">
       <template slot="title">

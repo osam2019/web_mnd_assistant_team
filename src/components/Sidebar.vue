@@ -1,58 +1,52 @@
 <template>
-  <el-menu
-    default-active="2"
-    class="el-menu-vertical-demo"
-    @open="handleOpen"
-    @close="handleClose"
-  >
-    <el-submenu index="1">
-      <template slot="title">
-        <i class="el-icon-location" />
-        <span>Navigator One</span>
-      </template>
-      <el-menu-item-group title="Group One">
-        <el-menu-item index="1-1">
-          item one
+  <div>
+    <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+      <el-menu-item index="1" @click="isCollapse = !isCollapse">
+        <font-awesome-icon icon="bars" />
+        <span slot="title" class="rs">열기/닫기</span>
+      </el-menu-item>
+
+      <router-link to="/dashboard/emails">
+        <el-menu-item index="2">
+          <font-awesome-icon icon="envelope" />
+          <span slot="title" class="rs">메일</span>
         </el-menu-item>
-        <el-menu-item index="1-2">
-          item one
+      </router-link>
+
+      <router-link to="/dashboard/contacts">
+        <el-menu-item index="3">
+          <font-awesome-icon icon="user" />
+          <span slot="title" class="rs">주소록</span>
         </el-menu-item>
-      </el-menu-item-group>
-      <el-menu-item-group title="Group Two">
-        <el-menu-item index="1-3">
-          item three
-        </el-menu-item>
-      </el-menu-item-group>
-      <el-submenu index="1-4">
-        <template slot="title">
-          item four
-        </template>
-        <el-menu-item index="1-4-1">
-          item one
-        </el-menu-item>
-      </el-submenu>
-    </el-submenu>
-    <el-menu-item index="2">
-      <i class="el-icon-menu" />
-      <span>Navigator Two</span>
-    </el-menu-item>
-    <el-menu-item
-      index="3"
-      disabled
-    >
-      <i class="el-icon-document" />
-      <span>Navigator Three</span>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <i class="el-icon-setting" />
-      <span>Navigator Four</span>
-    </el-menu-item>
-  </el-menu>
+      </router-link>
+
+      <router-link to="/dashboard/calendar">
+      <el-menu-item index="4">
+        <font-awesome-icon icon="calendar" />
+        <span slot="title" class="rs">일정 관리</span>
+      </el-menu-item>
+      </router-link>
+
+      <router-link to="/dashboard/settings">
+      <el-menu-item index="5">
+        <font-awesome-icon icon="cog" />
+        <span slot="title" class="rs">설정</span>
+      </el-menu-item>
+      </router-link>
+
+    </el-menu>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'Sidebar',
+  data(){
+    return {
+      isCollapse: false,
+      unread_emails: 12
+    }
+  },
   methods: {
     handleOpen(key, keyPath){
       console.log(key, keyPath);
@@ -64,6 +58,20 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 240px;
+  min-height: 600px;
+}
+.rs {
+  margin-left: 16px;
+  font-weight: bolder;
+}
+.el-menu-item {
+  text-align: left;
+  text-decoration: none;
+}
+a:-webkit-any-link {
+  text-decoration: none;
+}
 </style>

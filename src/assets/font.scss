@@ -1,0 +1,29 @@
+$font-dir: "/fonts/";
+
+@font-face {
+  font-family: "SeoulNamsan";
+  src: url("#{$font-dir}SeoulNamsanM.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "SeoulNamsan";
+  src: url("#{$font-dir}SeoulNamsanB.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "SeoulNamsan";
+  src: url("#{$font-dir}SeoulNamsanEB.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bolder;
+}
+
+@font-face {
+  font-family: "SeoulNamsan";
+  src: url("#{$font-dir}SeoulNamsanL.ttf") format("truetype");
+  font-style: normal;
+  font-weight: lighter;
+}

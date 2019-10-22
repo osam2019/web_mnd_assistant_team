@@ -16,8 +16,12 @@
 </template>
 
 <style lang="scss">
+body {
+  margin: 0px !important;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Arial, 'SeoulNamsan', Helvetica, Arial, sans-serif;
+  font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
