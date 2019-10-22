@@ -12,18 +12,18 @@
 
       <el-table-column
         property="from"
-        label="From"
+        label="보낸자"
         width="120">
       </el-table-column>
 
       <el-table-column
         property="title"
-        label="Title"
+        label="제목"
         show-overflow-tooltip>
       </el-table-column>
 
       <el-table-column
-        label="Date"
+        label="날짜"
         width="120">
         <template slot-scope="scope">{{scope.row.date}}</template>
       </el-table-column>

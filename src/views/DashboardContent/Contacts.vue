@@ -21,14 +21,14 @@
 
       <el-table-column
         property="rank"
-        label="Rank"
+        label="계급"
         width="80"
         sortable>
       </el-table-column>
 
       <el-table-column
         property="name"
-        label="Name"
+        label="성명"
         show-overflow-tooltip
         width="120"
         sortable>
@@ -36,14 +36,14 @@
 
       <el-table-column
         property="affiliation"
-        label="Affiliation"
+        label="소속"
         show-overflow-tooltip
         sortable>
       </el-table-column>
 
       <el-table-column
         property="email"
-        label="Email"
+        label="이메일"
         show-overflow-tooltip
         width="180"
         sortable>
