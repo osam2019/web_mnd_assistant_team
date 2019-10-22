@@ -18,44 +18,12 @@
       </el-image></div>
       </template>
     </el-menu-item>
-    <el-submenu index="2">
-      <template slot="title">
-        Workspace
-      </template>
-      <el-menu-item index="2-1">
-        item one
-      </el-menu-item>
-      <el-menu-item index="2-2">
-        item two
-      </el-menu-item>
-      <el-menu-item index="2-3">
-        item three
-      </el-menu-item>
-      <el-submenu index="2-4">
-        <template slot="title">
-          item four
-        </template>
-        <el-menu-item index="2-4-1">
-          item one
-        </el-menu-item>
-        <el-menu-item index="2-4-2">
-          item two
-        </el-menu-item>
-        <el-menu-item index="2-4-3">
-          item three
-        </el-menu-item>
-      </el-submenu>
-    </el-submenu>
-    <el-menu-item
-      index="3"
-      disabled
-    >
-      Info
-    </el-menu-item>
-
-    <router-link to="/dashboard/about" tag="el-menu-item" index="4">
+    
+    <el-menu-item 
+      @click="$router.push('/dashboard/about')"
+      index="4">
       정보
-    </router-link>
+    </el-menu-item>
   </el-menu>
 </template>
 
