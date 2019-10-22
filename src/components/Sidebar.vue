@@ -1,7 +1,8 @@
 <template>
   <div>
     <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-      <el-menu-item index="1" @click="isCollapse = !isCollapse">
+      <el-menu-item index="1"
+        @click="isCollapse = !isCollapse">
         <font-awesome-icon icon="bars" />
         <span slot="title" class="rs">열기/닫기</span>
       </el-menu-item>
