@@ -20,19 +20,18 @@ const routes = [
   },
   {
     path: '/dashboard', component: Dashboard,
-    name: 'dashboard',
-    children: [
-      {
+    children: [{
+        path: '', component: Emails
+      }, {
         path: 'emails', component: Emails
-      },
-      {
+      }, {
         path: 'contacts', component: Contacts
-      },
-      {
+      }, {
         path: 'calendar', component: Calendar
-      },
-      {
+      }, {
         path: 'settings', component: Settings
+      }, {
+        path: 'about', component: About
       }
     ]
   },

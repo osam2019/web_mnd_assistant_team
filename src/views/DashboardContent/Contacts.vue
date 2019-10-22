@@ -4,12 +4,12 @@
       :data="contactsList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()) || data.affiliation.toLowerCase().includes(search.toLowerCase()))"
       :default-sort = "{prop: 'name', order: 'ascending'}"
       style="width: 100%"
+      fit="true"
       @selection-change="handleSelectonChange"
       >
       
       <el-table-column
-        type="selection"
-        width="55">
+        type="selection">
       </el-table-column>
 
       <el-table-column
@@ -22,16 +22,15 @@
       <el-table-column
         property="rank"
         label="Rank"
-        width="120"
-        sortable
-        :formatter="formatter">
+        width="80"
+        sortable>
       </el-table-column>
 
       <el-table-column
         property="name"
         label="Name"
-        width="120"
         show-overflow-tooltip
+        width="120"
         sortable>
       </el-table-column>
 
@@ -46,8 +45,8 @@
         property="email"
         label="Email"
         show-overflow-tooltip
-        sortable
-        width="160">
+        width="180"
+        sortable>
       </el-table-column>
 
       <el-table-column align="right">
@@ -105,7 +104,7 @@ export default {
         email: "osam@kossa.kr"
       }, {
         rank: "일병",
-        name: "김김김",
+        name: "김검진",
         affiliation: "공본직할 항의원 특수검진과",
         email: "18-70012903@af.mil"
       }, {

@@ -6,33 +6,30 @@
         <span slot="title" class="rs">열기/닫기</span>
       </el-menu-item>
 
-      <router-link to="/dashboard/emails">
-        <el-menu-item index="2">
-          <font-awesome-icon icon="envelope" />
-          <span slot="title" class="rs">메일</span>
-        </el-menu-item>
-      </router-link>
+      <el-menu-item index="2"
+        @click="$router.push('/dashboard/emails')">
 
-      <router-link to="/dashboard/contacts">
-        <el-menu-item index="3">
-          <font-awesome-icon icon="user" />
-          <span slot="title" class="rs">주소록</span>
-        </el-menu-item>
-      </router-link>
+        <font-awesome-icon icon="envelope" />
+        <span slot="title" class="rs">메일</span>
+      </el-menu-item>
 
-      <router-link to="/dashboard/calendar">
-      <el-menu-item index="4">
+      <el-menu-item index="3"
+        @click="$router.push('/dashboard/contacts')">
+        <font-awesome-icon icon="user" />
+        <span slot="title" class="rs">주소록</span>
+      </el-menu-item>
+
+      <el-menu-item index="4"
+        @click="$router.push('/dashboard/calendar')">
         <font-awesome-icon icon="calendar" />
         <span slot="title" class="rs">일정 관리</span>
       </el-menu-item>
-      </router-link>
 
-      <router-link to="/dashboard/settings">
-      <el-menu-item index="5">
+      <el-menu-item index="5"
+        @click="$router.push('/dashboard/settings')">
         <font-awesome-icon icon="cog" />
         <span slot="title" class="rs">설정</span>
       </el-menu-item>
-      </router-link>
 
     </el-menu>
   </div>
@@ -69,9 +66,6 @@ export default {
 }
 .el-menu-item {
   text-align: left;
-  text-decoration: none;
-}
-a:-webkit-any-link {
   text-decoration: none;
 }
 </style>

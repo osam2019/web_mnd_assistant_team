@@ -6,9 +6,9 @@
     @select="handleSelect"
     background-color="#3498db"
     text-color="#fff"
-    active-text-color="#ffeaa7"
   >
-    <el-menu-item index="1">
+    <el-menu-item index="1"
+      @click="$router.push('/dashboard')">
       <template slot="title">
         <div style="display:inline-block;"><el-image
         style="width: 128px; height: 48px"
@@ -52,12 +52,10 @@
     >
       Info
     </el-menu-item>
-    <el-menu-item index="4">
-      <a
-        href="https://www.ele.me"
-        target="_blank"
-      >Orders</a>
-    </el-menu-item>
+
+    <router-link to="/dashboard/about" tag="el-menu-item" index="4">
+      정보
+    </router-link>
   </el-menu>
 </template>
 

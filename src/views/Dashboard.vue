@@ -1,20 +1,22 @@
 <template>
-  <div class="parent">
-    <div class="top">
-      <TopNav />
+  <transition name="el-fade-in-linear">
+    <div class="parent">
+      <div class="top">
+        <TopNav />
+      </div>
+      <div class="left">
+        <Sidebar />
+      </div>
+      <div class="center">
+        <el-collapse-transition>
+          <router-view />
+        </el-collapse-transition>
+      </div>
+      <div class="right">
+        <ChatScreen />
+      </div>
     </div>
-    <div class="left">
-      <Sidebar />
-    </div>
-    <div class="center">
-      <transition name="fade">
-        <router-view />
-      </transition>
-    </div>
-    <div class="right">
-      <ChatScreen />
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
