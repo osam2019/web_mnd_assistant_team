@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "OSAM-Frontend",
+      "name": "osam",
       "cwd": ".",
       "script": "yarn",
       "args": [

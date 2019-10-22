@@ -4,7 +4,7 @@
       :data="contactsList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()) || data.affiliation.toLowerCase().includes(search.toLowerCase()))"
       :default-sort = "{prop: 'name', order: 'ascending'}"
       style="width: 100%"
-      fit="true"
+      
       @selection-change="handleSelectonChange"
       >
       

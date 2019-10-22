@@ -49,12 +49,23 @@ export default {
     sendMessage (text) {
       if (text.length > 0) {
         this.newMessagesCount = this.isChatOpen ? this.newMessagesCount : this.newMessagesCount + 1
+
         this.onMessageWasSent({ author: 'support', type: 'text', data: { text } })
+
+
       }
     },
     onMessageWasSent (message) {
       // called when the user sends a message
       this.messageList = [ ...this.messageList, message ]
+
+      let text = message.data.text
+      console.log(text)
+      if(text.includes('열어')){
+          if(text.includes('메일')){
+            this.$router.push('/dashboard/emails')
+          }
+        }
     },
     openChat(){
       this.isChatOpen = true
