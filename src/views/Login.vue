@@ -101,7 +101,7 @@ export default {
           type: 'error'
         })
       } else {
-        this.$router.push({name: "Dashboard", params: {id: this.id, password: this.password}})
+        this.$router.push('/dashboard')
       }
     }
   }
