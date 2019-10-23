@@ -1,28 +1,32 @@
 <template>
   <transition name="el-fade-in-linear">
-    <div class="parent">
-      <div class="top">
-        <TopNav />
+    <div>
+      <ChatScreen />
+      <div class="parent">
+        <div class="top">
+          <TopNav />
+        </div>
+        <div class="left">
+          <Sidebar />
+        </div>
+        
+        <div class="right" />
+        <div class="center">
+          <el-collapse-transition>
+            <router-view style="z-index: 0;"/>
+          </el-collapse-transition>
+        </div>
       </div>
-      <div class="left">
-        <Sidebar />
-      </div>
-      <div class="center">
-        <el-collapse-transition>
-          <router-view />
-        </el-collapse-transition>
-      </div>
-      <div class="right">
-        <ChatScreen />
-      </div>
+      
     </div>
   </transition>
 </template>
 
 <script>
+import ChatScreen from '../components/ChatScreen'
 import TopNav from '../components/TopNav'
 import Sidebar from '../components/Sidebar'
-import ChatScreen from '../components/ChatScreen'
+
 
 export default {
   name: 'Dashboard',
@@ -38,7 +42,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .parent {
   display: grid;
   grid-template-columns: 0fr 6fr 0fr;
@@ -52,4 +56,14 @@ export default {
 .left { grid-area: 2 / 1 / 6 / 2; }
 .center { grid-area: 2 / 2 / 6 / 3; }
 .right { grid-area: 2 / 3 / 6 / 4; }
+
+.el-button.el-button--primary{
+  border-bottom: 2px solid #007dff;
+}
+.el-button.el-button--info{
+  border-bottom: 2px solid #71757b;
+}
+.el-button.el-button--notify{
+  border-bottom: 2px solid #cccccc;
+}
 </style>

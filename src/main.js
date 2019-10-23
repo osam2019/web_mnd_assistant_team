@@ -3,8 +3,7 @@ import App from './App'
 import router from './router'
 import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/ko'
-import Vuex from 'vuex'
-
+import store from './store/index.js'
 import Chat from 'vue-beautiful-chat'
 
 //Import Font Awesome
@@ -28,10 +27,14 @@ Vue.use(styles)
 Vue.config.productionTip = false
 
 Vue.use(Element, { locale })
-Vue.use(Vuex)
 Vue.use(Chat)
 
 new Vue({
+  store,
   router,
   render: h => h(App)
 }).$mount('#app')
+
+
+
+ 

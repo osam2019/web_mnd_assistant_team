@@ -2,33 +2,36 @@
   <div>
     <el-table
       :data="emailData"
-      style="width: 100%"
-      @selection-change="handleSelectionChange">
-
+      style=" width: 100%"
+      @selection-change="handleSelectionChange"
+    >
       <el-table-column
         type="selection"
-        width="55">
-      </el-table-column>
+        width="55"
+      />
 
       <el-table-column
         property="from"
         label="보낸자"
-        width="120">
-      </el-table-column>
+        width="120"
+      />
 
       <el-table-column
         property="title"
         label="제목"
-        show-overflow-tooltip>
-      </el-table-column>
+        show-overflow-tooltip
+      />
 
       <el-table-column
         property="date"
         label="날짜"
-        width="120">
-        <template slot-scope="scope">{{scope.row.date}}</template>
+        width="120"
+        fixed="right"
+      ><template slot-scope="scope">{{scope.row.date}}</template>
+        <template slot-scope="scope">
+          {{ scope.row.date }}
+        </template>
       </el-table-column>
-    
     </el-table>
   </div>
 </template>
