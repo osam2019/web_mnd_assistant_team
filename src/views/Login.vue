@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <transition name="slide-fade" appear>
+  <video-bg
+    :sources="['/video.mp4']"
+    img="/video_placeholder.png"
+  >
+    <transition
+      name="slide-fade"
+      appear
+    >
       <el-card class="login box-card">
         <div
           slot="header"
@@ -50,13 +56,17 @@
               <el-button
                 type="primary"
                 round
+                class="button-boing"
                 @click="onSubmit"
+                v-loading.fullscreen.lock="fullscreenLoading"
               >
                 로그인
               </el-button>
               <el-button
                 type="info"
+                class="button-boing"
                 round
+                v-loading.fullscreen.lock="fullscreenLoading"
               >
                 회원가입
               </el-button>
@@ -72,18 +82,24 @@
         <p>{{ errorMessage }}</p>
       </el-card>
     </transition>
-  </div>
+  </video-bg>
 </template>
 
 <script>
+import VideoBg from 'vue-videobg'
+
 export default {
   name: 'Login',
+  components: {
+    VideoBg
+  },
   data () {
     return {
       id: "",
       password: "",
       errorText: null,
-      logo_url: "/mnd_logo.png"
+      logo_url: "/mnd_logo.png",
+      fullscreenLoading: false
     }
   },
   methods: {
@@ -101,7 +117,26 @@ export default {
           type: 'error'
         })
       } else {
-        this.$router.push('/dashboard')
+        const loading = this.$loading({
+          lock: true,
+          text: '로그인중...',
+          background: 'rgba(0, 0, 0, 0.7)'
+        });
+        setTimeout(() => {
+
+          this.$message({
+            message: '환영합니다, 이은상님!',
+            type: 'success'
+          })
+
+          setTimeout(()=>{
+            loading.close();  
+            this.$router.push('/dashboard')
+          }, 1000)
+
+        }, 2000);
+          
+        
       }
     }
   }
@@ -111,10 +146,11 @@ export default {
 <style scoped>
 .login{
   max-width: 450px;
-  margin-top: 50px;
+  margin-top: 200px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 .form-control {
   margin-top: 16px;
@@ -136,5 +172,23 @@ export default {
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateY(10px);
   opacity: 0;
+}
+.VideoBg {
+  min-height: 640px;
+}
+.VideoBg__content {
+  text-align: center;
+  background-color: rgba(52, 72, 92, 0.7);
+}
+.el-button.el-button--primary{
+  border-bottom: 2px solid #007dff;
+}
+.el-button.el-button--info{
+  border-bottom: 2px solid #71757b;
+}
+.el-button:hover {
+  -webkit-transform: translate(0, -2px);
+  -ms-transform: translate(0, -2px);
+  transform: translate(0, -2px);
 }
 </style>
