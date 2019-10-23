@@ -1,8 +1,6 @@
 <template>
   <div>
-    <el-calendar v-model="value">
-
-    </el-calendar>
+    <el-calendar v-model="value" />
   </div>
 </template>
 
