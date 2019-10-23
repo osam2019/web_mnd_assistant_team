@@ -6,23 +6,23 @@
     @select="handleSelect"
     background-color="#3498db"
     text-color="#fff"
-  >
-    <el-menu-item index="1"
+    :router="true">
+
+    <el-menu-item index="/dashboard"
       @click="$router.push('/dashboard')">
       <template slot="title">
-        <div style="display:inline-block;"><el-image
-        style="width: 128px; height: 48px"
-        src="/mnd_logo.png"
-        fit="contain"
-        >
-      </el-image></div>
+        <div style="display:inline-block;">
+          <el-image
+            style="width: 128px; height: 48px"
+            src="/mnd_logo.png"
+            fit="contain">
+          </el-image>
+        </div>
       </template>
     </el-menu-item>
     
-    <el-menu-item 
-      @click="$router.push('/dashboard/about')"
-      index="4">
-      정보
+    <el-menu-item index="/dashboard/about">
+      <span>정보</span>
     </el-menu-item>
   </el-menu>
 </template>
@@ -32,8 +32,7 @@ export default {
   name: 'TopNav',
   data() {
     return {
-      activeIndex: '1',
-      activeIndex2: '1'
+      activeIndex: '1'
     };
   },
   methods: {
@@ -45,5 +44,10 @@ export default {
 </script>
 
 <style scoped>
-
+span {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 13pt;
+  color: #fff;
+}
 </style>
