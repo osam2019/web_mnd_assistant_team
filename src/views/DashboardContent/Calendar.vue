@@ -19,20 +19,24 @@
     </el-button>
 
     <el-dialog
+      v-loading="loading"
+      element-loading-text="저장중..."
       title="이벤트 등록"
       :visible.sync="addEventDialogVisible"
     >
       <!-- start end title content class -->
       <el-form
         :model="formEvent"
+        :rules="rules"
+        ref="formEvent"
         label-width="120px"  
       >
 
-        <el-form-item label="제목">
+        <el-form-item label="제목" prop="title">
           <el-input v-model="formEvent.title"></el-input>
         </el-form-item>
 
-        <el-form-item label="이벤트 시작">
+        <el-form-item label="이벤트 시작" prop="start">
           <el-date-picker
             v-model="formEvent.start"
             type="datetime"
@@ -40,7 +44,7 @@
           </el-date-picker>
         </el-form-item>
 
-        <el-form-item label="이벤트 끝">
+        <el-form-item label="이벤트 끝" prop="end">
           <el-date-picker
             v-model="formEvent.end"
             type="datetime"
@@ -48,8 +52,23 @@
           </el-date-picker>
         </el-form-item>
 
-        <el-form-item label="내용">
+        <el-form-item label="이벤트 종류" prop="class">
+          <el-radio-group v-model="formEvent.class">
+            <el-radio-button label="업무" index="work"></el-radio-button>
+            <el-radio-button label="휴가" index="holiday"></el-radio-button>
+            <el-radio-button label="레져" index="leisure"></el-radio-button>
+          </el-radio-group>
+        </el-form-item>
+
+        <el-form-item label="내용" prop="content">
           <el-input type="textarea" v-model="formEvent.content"></el-input>
+        </el-form-item>
+
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit">
+            저장하기
+          </el-button>
+          <el-button @click="toggleEventForm">취소</el-button>
         </el-form-item>
 
       </el-form>
@@ -72,7 +91,19 @@ export default {
         title: '',
         content: '',
         class: ''
-      }
+      },
+      rules : {
+        title: [
+          { required: true, message: '제목을 입력해주십시오!', trigger: 'blur'}
+        ],
+        start: [
+          {type: 'date', required: true, message: '시작 날짜를 정해주십시오!', trigger: 'change'}
+        ],
+        end: [
+          // {type: 'date'}
+        ]
+      },
+      loading: false
     }
   },
   computed: {
@@ -90,6 +121,65 @@ export default {
     },
     toggleEventForm(){
       this.addEventDialogVisible = !this.addEventDialogVisible
+    },
+    onSubmit(){
+      this.$refs['formEvent'].validate((valid) => {
+        
+        if(valid){
+
+          this.loading = true
+
+          let form = {
+            title: '',
+            start: '',
+            end: '',
+            class: '',
+            content: ''
+          }
+
+          form.title = this.formEvent.title;
+
+          let toYYYYMMDDHHMMSS = (dt) => `${
+            (dt.getMonth()+1).toString().padStart(2, '0')}/${
+            dt.getDate().toString().padStart(2, '0')}/${
+            dt.getFullYear().toString().padStart(4, '0')} ${
+            dt.getHours().toString().padStart(2, '0')}:${
+            dt.getMinutes().toString().padStart(2, '0')}:${
+            dt.getSeconds().toString().padStart(2, '0')}`
+
+          form.start = toYYYYMMDDHHMMSS(this.formEvent.start)
+
+          if(!this.formEvent.end){
+            this.formEvent.end = new Date(this.formEvent.start.getTime());
+            this.formEvent.end.setHours(this.formEvent.end.getHours() + 1);
+          }
+
+          form.end = toYYYYMMDDHHMMSS(this.formEvent.end)
+          form.class = this.formEvent.class;
+          form.content = this.formEvent.content;
+
+          switch(this.formEvent.class){
+            case '휴가': form.class = 'holiday'; break;
+            case '레져': form.class = 'leisure'; break;
+            default: form.class = 'work'
+          }
+
+          console.log(form)
+
+          setTimeout(() => {
+            this.addEventDialogVisible = false
+            this.addEvent(form)
+            this.clearForm()
+            this.loading = false
+          }, 800);
+        } else {
+          return false
+        }
+
+      })
+    },
+    clearForm(){
+      this.$refs['formEvent'].resetFields()
     }
   }
 }

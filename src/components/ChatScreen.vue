@@ -40,7 +40,15 @@ export default {
       ],
       alwaysScrollToBottom: true,
       messageStyling: true,
-      showTypingIndicator: ''
+      showTypingIndicator: '',
+      isTakingInput: 0,
+      eventForm: {
+        title: '',
+        start: '',
+        end: '',
+        class: 'work',
+        content: '어시스턴트가 만든 이벤트'
+      }
     }
   }, computed: {
     messageList() {
@@ -78,7 +86,53 @@ export default {
         let messageToSend = '';
 
         //메뉴 열기
-        if(msg.includes('열어')){
+        let customIntent = this.$store.getters['teachai/getIntent'];
+
+        console.log(this.isTakingInput)
+
+        if (this.isTakingInput > 0){
+          //2 title
+          //1 time
+
+          switch(this.isTakingInput){
+          case 2:
+            this.eventForm.title = msg.trim();
+            messageToSend = '일정의 시간을 알려주세요.'
+            break;
+          case 1:
+            this.eventForm.start = msg.trim();
+            messageToSend = '일정을 추가합니다.'
+
+            let toYYYYMMDDHHMMSS = (dt) => `${
+              (dt.getMonth()+1).toString().padStart(2, '0')}/${
+              dt.getDate().toString().padStart(2, '0')}/${
+              dt.getFullYear().toString().padStart(4, '0')} ${
+              dt.getHours().toString().padStart(2, '0')}:${
+              dt.getMinutes().toString().padStart(2, '0')}:${
+              dt.getSeconds().toString().padStart(2, '0')}`
+            
+            this.eventForm.start = toYYYYMMDDHHMMSS(new Date(this.eventForm.start));
+
+            let endDate = new Date(this.eventForm.start);
+            endDate.setHours(1 + endDate.getHours());
+            this.eventForm.end = toYYYYMMDDHHMMSS(endDate)
+
+            console.log(this.eventForm)
+
+            let t = this;
+            setTimeout(() => {
+              this.$store.dispatch('calendar/addEvent', this.eventForm, {root: true})
+              t.$router.push('/dashboard/calendar')
+            }, 1500);
+          }
+          this.isTakingInput--;
+
+        } else if(msg.includes('일정') && (msg.includes('추가') || msg.includes('더해'))){
+          this.isTakingInput = 2;
+          messageToSend = '일정의 제목을 알려주세요.'
+        } else if(customIntent.question !== '' && msg.includes(customIntent.question)){
+          messageToSend = customIntent.answer;
+        } else if(msg.includes('열어')){
           if(message.data.text.includes('메일')){
             this.$router.push('/dashboard/emails')
             messageToSend = '열었습니다.'
