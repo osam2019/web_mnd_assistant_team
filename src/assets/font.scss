@@ -1,29 +1,69 @@
 $font-dir: "/fonts/";
 
-@font-face {
-  font-family: "SeoulNamsan";
-  src: url("#{$font-dir}SeoulNamsanM.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
+// @font-face {
+//   font-family: "SeoulNamsan";
+//   src: url("#{$font-dir}SeoulNamsanM.ttf") format("truetype");
+//   font-style: normal;
+//   font-weight: normal;
+// }
+
+// @font-face {
+//   font-family: "SeoulNamsan";
+//   src: url("#{$font-dir}SeoulNamsanB.ttf") format("truetype");
+//   font-style: normal;
+//   font-weight: bold;
+// }
+
+// @font-face {
+//   font-family: "SeoulNamsan";
+//   src: url("#{$font-dir}SeoulNamsanEB.ttf") format("truetype");
+//   font-style: normal;
+//   font-weight: bolder;
+// }
+
+// @font-face {
+//   font-family: "SeoulNamsan";
+//   src: url("#{$font-dir}SeoulNamsanL.ttf") format("truetype");
+//   font-style: normal;
+//   font-weight: lighter;
+// }
+
+@font-face { 
+  font-family: 'S-CoreDream-8Heavy'; 
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff'); 
+  font-weight: normal; 
+  font-style: normal; 
 }
 
-@font-face {
-  font-family: "SeoulNamsan";
-  src: url("#{$font-dir}SeoulNamsanB.ttf") format("truetype");
-  font-style: normal;
-  font-weight: bold;
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:500,900&display=swap&subset=korean');
+
+@font-face { 
+  font-family: 'NanumBarunGothic'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot'); 
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), 
+  url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), 
+  url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype'); 
+} 
+
+@font-face { 
+  font-family: 'NanumBarunGothic'; 
+  font-style: normal; 
+  font-weight: 700; 
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot'); 
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'),
+   url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), 
+   url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype') 
+} 
+
+@font-face { 
+  font-family: 'NanumBarunGothic'; 
+  font-style: normal; font-weight: 300; 
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot'); 
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), 
+  url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), 
+  url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
 }
 
-@font-face {
-  font-family: "SeoulNamsan";
-  src: url("#{$font-dir}SeoulNamsanEB.ttf") format("truetype");
-  font-style: normal;
-  font-weight: bolder;
-}
-
-@font-face {
-  font-family: "SeoulNamsan";
-  src: url("#{$font-dir}SeoulNamsanL.ttf") format("truetype");
-  font-style: normal;
-  font-weight: lighter;
-}
+.nanumbarungothic * { font-family: 'NanumBarunGothic', sans-serif; }

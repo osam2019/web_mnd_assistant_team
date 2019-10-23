@@ -20,8 +20,9 @@ body {
   margin: 0px !important;
 }
 #app {
-  font-family: Arial, 'SeoulNamsan', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans KR', 'NanumBarunGothic', Arial, 'SeoulNamsan', Helvetica, Arial, sans-serif;
   font-weight: normal;
+  font-size: 14pt;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
