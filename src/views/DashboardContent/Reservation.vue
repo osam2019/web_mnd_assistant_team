@@ -110,21 +110,21 @@
                 />
               </el-form-item>
               <el-form-item
-                label="zone"
+                label="상위부서"
                 :label-width="formLabelWidth"
               >
                 <el-select
                   v-model="form.region"
                   style="width:350px"
-                  placeholder="Please select a zone"
+                  placeholder="상급 부대를 선택해 주십시오"
                 >
                   <el-option
-                    label="Zone No.1"
-                    value="shanghai"
+                    label="55전대"
+                    value="55전대"
                   />
                   <el-option
-                    label="Zone No.2"
-                    value="beijing"
+                    label="항의원"
+                    value="항의원"
                   />
                 </el-select>
               </el-form-item>
@@ -151,8 +151,8 @@ export default {
   data(){
     return {
       settings: {
-        user_name: '',
-        do_alert: true
+        user_name: ''
+        
       },
       dialogTableVisible: false,
       dialogFormVisible: false,
@@ -223,12 +223,7 @@ export default {
     border-radius: 4px;
     min-height: 36px;
   }
-  .hv{
-      position : absolute;
-      top:50%;
-      left : 50%;
-      margin : auto;
-  }
+  
   .row-bg {
     padding: 10px 0;
     background-color: #f9fafc;
