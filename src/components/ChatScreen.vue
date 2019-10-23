@@ -33,13 +33,14 @@ export default {
         {
           id: 'user1',
           name: '국방 어시스턴트',
-          imageUrl: 'https://avatars3.githubusercontent.com/u/1915989?s=230&v=4'
+          imageUrl: '/mnd_icon.png'
         }
       ],
       isChatOpen: true,
       messageList: [
-          { type: 'text', author: `user1`, data: { text: `No.` } },
-          { type: 'text', author: `me`, data: { text: `Say yes!` } }
+          { type: 'text', author: `user1`, data: { text: `안녕하세요, 국방 어시스턴트입니다.
+          무엇을 도와드릴까요?` } },
+          //{ type: 'text', author: `me`, data: { text: `Say yes!` } }
       ],
       newMessagesCount: 1,
       alwaysScrollToBottom: true,
@@ -50,7 +51,7 @@ export default {
       if (text.length > 0) {
         this.newMessagesCount = this.isChatOpen ? this.newMessagesCount : this.newMessagesCount + 1
 
-        this.onMessageWasSent({ author: 'support', type: 'text', data: { text } })
+        this.onMessageWasSent({ author: 'user1', type: 'text', data: { text } })
 
 
       }
@@ -59,13 +60,31 @@ export default {
       // called when the user sends a message
       this.messageList = [ ...this.messageList, message ]
 
-      let text = message.data.text
-      console.log(text)
-      if(text.includes('열어')){
-          if(text.includes('메일')){
-            this.$router.push('/dashboard/emails')
+      console.log(message)
+
+      if(message.author== 'me' && message.data.text.includes('열어')){
+        if(message.data.text.includes('메일')){
+
+          this.$router.push('/dashboard/emails')
+        } else if(message.data.text.includes('주소록')){
+          
+          
+          function sleep(ms){
+            return new Promise(resolve => setTimeout(resolve, ms));
           }
+
+
+          async function sendDelayed(thees, m){
+            await sleep(1000)
+
+            thees.$router.push('/dashboard/contacts')
+            m = [...m, {type: 'text', author: 'user1', data: { text: '열었습니다.'}} ]
+          }
+
+          sendDelayed(this, this.messageList)
+          
         }
+      }
     },
     openChat(){
       this.isChatOpen = true
@@ -79,7 +98,7 @@ export default {
       // leverage pagination for loading another page of messages
   	},
     handleOnType () {
-      console.log('Emit typing event')
+      //console.log('Emit typing event')
     },
     editMessage(message){
       const m = this.messageList.find(m=>m.id === message.id);
@@ -91,5 +110,7 @@ export default {
 </script>
 
 <style>
-
+.received .sc-message--text {
+  color: #2c3e50 !important;
+}
 </style>
