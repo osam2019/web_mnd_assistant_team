@@ -1,37 +1,45 @@
 <template>
   <div>
-    <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-      <el-menu-item index="1"
+    <el-menu 
+      :default-active="activeLink" 
+      class="el-menu-vertical-demo" 
+      @open="handleOpen"
+      @close="handleClose"
+      :collapse="isCollapse"
+      :router="true">
+
+      <el-menu-item
         @click="isCollapse = !isCollapse">
-        <font-awesome-icon icon="bars" />
-        <span slot="title" class="rs">열기/닫기</span>
+        <font-awesome-icon icon="bars" size="2x"/>
+        <span slot="title" class="rs"></span>
       </el-menu-item>
 
-      <el-menu-item index="2"
-        @click="$router.push('/dashboard/emails')">
-
-        <font-awesome-icon icon="envelope" />
+      <el-menu-item index="/dashboard/emails">
+        <font-awesome-icon icon="envelope" size="2x"/>
         <span slot="title" class="rs">메일</span>
       </el-menu-item>
 
-      <el-menu-item index="3"
-        @click="$router.push('/dashboard/contacts')">
-        <font-awesome-icon icon="user" />
+      <el-menu-item index="/dashboard/contacts">
+        <font-awesome-icon icon="address-card" size="2x" />
         <span slot="title" class="rs">주소록</span>
       </el-menu-item>
 
-      <el-menu-item index="4"
-        @click="$router.push('/dashboard/calendar')">
-        <font-awesome-icon icon="calendar" />
+      <el-menu-item index="/dashboard/calendar">
+        <font-awesome-icon icon="calendar" size="2x" />
         <span slot="title" class="rs">일정 관리</span>
       </el-menu-item>
 
-      <el-menu-item index="5"
-        @click="$router.push('/dashboard/settings')">
-        <font-awesome-icon icon="cog" />
+      <el-menu-item index="/dashboard/reservation">
+        <font-awesome-icon icon="clipboard-check" size="2x"/>
+        <span slot="title" class="rs">예약하기</span>
+      </el-menu-item>
+
+      <el-menu-item index="/dashboard/settings">
+        <font-awesome-icon icon="cog" size="2x"/>
         <span slot="title" class="rs">설정</span>
       </el-menu-item>
 
+      
     </el-menu>
   </div>
 </template>
@@ -42,7 +50,13 @@ export default {
   data(){
     return {
       isCollapse: false,
+      activeLink: '/dashboard/emails',
       unread_emails: 12
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.activeLink = to.path
     }
   },
   methods: {
@@ -62,11 +76,19 @@ export default {
   min-height: 600px;
 }
 .rs {
-  margin-left: 16px;
+  font-family: 'S-CoreDream-8Heavy';
+  font-size: 15pt;
   font-weight: bolder;
 }
-.el-menu-item {
+li.el-menu-item {
   text-align: left;
   text-decoration: none;
+}
+li.el-menu-item * {
+  color: #606467;
+}
+svg {
+  min-width: 30px;
+  margin-right: 16px;
 }
 </style>
