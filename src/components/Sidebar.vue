@@ -3,43 +3,78 @@
     <el-menu 
       :default-active="activeLink" 
       class="el-menu-vertical-demo" 
+      :collapse="isCollapse"
+      :router="true"
       @open="handleOpen"
       @close="handleClose"
-      :collapse="isCollapse"
-      :router="true">
-
+    >
       <el-menu-item
-        @click="isCollapse = !isCollapse">
-        <font-awesome-icon icon="bars" size="2x"/>
-        <span slot="title" class="rs"></span>
+        @click="isCollapse = !isCollapse"
+      >
+        <font-awesome-icon
+          icon="bars"
+          size="2x"
+        />
+        <span
+          slot="title"
+          class="rs"
+        />
       </el-menu-item>
 
       <el-menu-item index="/dashboard/emails">
-        <font-awesome-icon icon="envelope" size="2x"/>
-        <span slot="title" class="rs">메일</span>
+        <font-awesome-icon
+          icon="envelope"
+          size="2x"
+        />
+        <span
+          slot="title"
+          class="rs"
+        >메일</span>
       </el-menu-item>
 
       <el-menu-item index="/dashboard/contacts">
-        <font-awesome-icon icon="address-card" size="2x" />
-        <span slot="title" class="rs">주소록</span>
+        <font-awesome-icon
+          icon="address-card"
+          size="2x"
+        />
+        <span
+          slot="title"
+          class="rs"
+        >주소록</span>
       </el-menu-item>
 
       <el-menu-item index="/dashboard/calendar">
-        <font-awesome-icon icon="calendar" size="2x" />
-        <span slot="title" class="rs">일정 관리</span>
+        <font-awesome-icon
+          icon="calendar"
+          size="2x"
+        />
+        <span
+          slot="title"
+          class="rs"
+        >일정 관리</span>
       </el-menu-item>
 
       <el-menu-item index="/dashboard/reservation">
-        <font-awesome-icon icon="clipboard-check" size="2x"/>
-        <span slot="title" class="rs">예약하기</span>
+        <font-awesome-icon
+          icon="clipboard-check"
+          size="2x"
+        />
+        <span
+          slot="title"
+          class="rs"
+        >예약하기</span>
       </el-menu-item>
 
       <el-menu-item index="/dashboard/settings">
-        <font-awesome-icon icon="cog" size="2x"/>
-        <span slot="title" class="rs">설정</span>
+        <font-awesome-icon
+          icon="cog"
+          size="2x"
+        />
+        <span
+          slot="title"
+          class="rs"
+        >설정</span>
       </el-menu-item>
-
-      
     </el-menu>
   </div>
 </template>

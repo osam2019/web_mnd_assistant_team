@@ -3,26 +3,31 @@
     :default-active="activeIndex"
     class="el-menu-demo"
     mode="horizontal"
-    @select="handleSelect"
     background-color="#3498db"
     text-color="#fff"
-    :router="true">
-
-    <el-menu-item index="/dashboard"
-      @click="$router.push('/dashboard')">
+    :router="true"
+    @select="handleSelect"
+  >
+    <el-menu-item
+      index="/dashboard"
+      @click="$router.push('/dashboard')"
+    >
       <template slot="title">
         <div style="display:inline-block;">
           <el-image
-            style="width: 128px; height: 48px"
+            style="width: 200px;height: 50px"
             src="/mnd_logo.png"
-            fit="contain">
-          </el-image>
+            fit="contain"
+          />
         </div>
       </template>
     </el-menu-item>
     
     <el-menu-item index="/dashboard/about">
-      <font-awesome-icon icon="hamburger" size="lg"/>
+      <font-awesome-icon
+        icon="hamburger"
+        size="lg"
+      />
       <span slot="title">정보</span>
     </el-menu-item>
   </el-menu>
@@ -52,6 +57,7 @@ span {
   color: #fff;
 }
 svg {
+  color: #fff;
   margin-right: 8px;
 }
 </style>
