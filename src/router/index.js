@@ -10,6 +10,7 @@ import Emails from '../views/DashboardContent/Emails.vue'
 import Contacts from '../views/DashboardContent/Contacts.vue'
 import Calendar from '../views/DashboardContent/Calendar.vue'
 import Settings from '../views/DashboardContent/Settings.vue'
+import Reservation from '../views/DashboardContent/Reservation.vue'
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,8 @@ const routes = [
         path: 'settings', component: Settings
       }, {
         path: 'about', component: About
+      }, {
+        path: 'reservation', component: Reservation
       }
     ]
   },
