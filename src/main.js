@@ -9,10 +9,14 @@ import Chat from 'vue-beautiful-chat'
 
 //Import Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faCog, faEnvelope, faAddressCard, faCalendar, faQuestionCircle, faClipboardCheck } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faCog, faEnvelope, faAddressCard, 
+  faCalendar, faQuestionCircle, faClipboardCheck,
+faHamburger } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faBars, faCog, faEnvelope, faAddressCard, faCalendar, faQuestionCircle, faClipboardCheck)
+library.add(faBars, faCog, faEnvelope, faAddressCard, 
+  faCalendar, faQuestionCircle, faClipboardCheck,
+  faHamburger)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 //Add Element UI Chalk CSS Theme

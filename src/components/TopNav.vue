@@ -22,7 +22,8 @@
     </el-menu-item>
     
     <el-menu-item index="/dashboard/about">
-      <span>정보</span>
+      <font-awesome-icon icon="hamburger" size="lg"/>
+      <span slot="title">정보</span>
     </el-menu-item>
   </el-menu>
 </template>
@@ -49,5 +50,8 @@ span {
   font-weight: 500;
   font-size: 13pt;
   color: #fff;
+}
+svg {
+  margin-right: 8px;
 }
 </style>
