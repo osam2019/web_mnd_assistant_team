@@ -8,10 +8,11 @@
     
     <el-form-item label="성명">
       <el-input v-model="settings.user_name"></el-input>
+
     </el-form-item>
 
     <el-divider></el-divider>
-
+    
     <el-form-item label="이 기기에 알림 보내기">
       <el-switch v-model="settings.do_alert"></el-switch>
     </el-form-item>
@@ -44,8 +45,21 @@ export default {
       }
     }
   },
+  mounted() {
+    if(localStorage.getItem('settings')) {
+      try {
+        this.settings = JSON.parse(localStorage.getItem('settings'));
+      } catch(e) {
+        localStorage.removeItem('settings');
+      }
+    }
+  },
   methods: {
     onSubmit() {
+      
+      const parsedSettings = JSON.stringify(this.settings);
+      localStorage.setItem('settings', parsedSettings);
+
       this.$message({
         message: '저장되었습니다!',
         type: 'success',
@@ -57,5 +71,5 @@ export default {
 </script>
 
 <style>
-
+  .a{border-radius : 30px;}
 </style>
