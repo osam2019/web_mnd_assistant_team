@@ -12,7 +12,7 @@
 
       <el-table-column
         property="from"
-        label="보낸자"
+        label="보낸이"
         width="120"
       />
 
