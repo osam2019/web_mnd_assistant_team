@@ -23,6 +23,7 @@
       </el-table-column>
 
       <el-table-column
+        property="date"
         label="날짜"
         width="120">
         <template slot-scope="scope">{{scope.row.date}}</template>
@@ -60,10 +61,32 @@ export default {
         date: "2019-10-21",
         from: "하사 이정필",
         title: "AFCCS 교체사업 견적서입니다."
+      }, {
+        date: '2019-10-20',
+        from: '중사 박육군',
+        title: "RE: RE: RE: RE: 안녕하십니까"
+      }, {
+        date: '2019-10-20',
+        from: '중사 박육군',
+        title: "RE: RE: 안녕하십니까"
       }
       ]
     }
-  }
+  },
+  methods: {
+      toggleSelection(rows) {
+        if (rows) {
+          rows.forEach(row => {
+            this.$refs.multipleTable.toggleRowSelection(row);
+          });
+        } else {
+          this.$refs.multipleTable.clearSelection();
+        }
+      },
+      handleSelectionChange(val) {
+        this.multipleSelection = val;
+      }
+    }
 }
 </script>
 <style>
