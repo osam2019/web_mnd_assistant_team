@@ -75,6 +75,29 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-dialog
+      :visible.sync="contactsDialogVisible">
+      <el-form :model="contactForm">
+        <el-form-item style="display: none">
+          <el-input v-model="contactForm.id"></el-input>
+        </el-form-item>
+        <el-form-item label="계급">
+          <el-input v-model="contactForm.rank"></el-input>
+        </el-form-item>
+        <el-form-item label="이름">
+          <el-input v-model="contactForm.name"></el-input>
+        </el-form-item>
+        <el-form-item label="소속">
+          <el-input v-model="contactForm.affiliation"></el-input>
+        </el-form-item>
+        <el-form-item label="이메일">
+          <el-input v-model="contactForm.email"></el-input>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="onSubmit" class="button-boing" round>저장하기</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -82,7 +105,14 @@
 export default {
   data(){
     return {
-      
+      contactForm: {
+        id: '',
+        rank: '',
+        name: '',
+        affiliation: '',
+        email: ''
+      },
+      contactsDialogVisible: false
     }
   }, 
   computed: {
@@ -96,6 +126,8 @@ export default {
   },
   methods: {
     handleEdit(index, row){
+      this.contactForm = row;
+      this.contactsDialogVisible = true
       console.log(index, row);
     },
     formatter(row, column) {
@@ -115,6 +147,19 @@ export default {
     },
     handleSearchChange(val){
       console.log(val)
+    },
+    onSubmit(){
+      const loading = this.$loading({
+        lock: true,
+        text: '저장중',
+        // spinner: 'el-icon-loading',
+        // background: 'rgba(0, 0, 0, 0.7)'
+      });
+      setTimeout(() => {
+        this.$store.dispatch('contacts/setContact', this.contactForm, {root: true})
+        this.contactsDialogVisible = false
+        loading.close();
+      }, 500);
     }
   }
 }
