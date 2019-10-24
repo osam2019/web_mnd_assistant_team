@@ -101,7 +101,7 @@ export default {
           case 2:
             this.eventForm.title = msg.trim();
             messageToSend = '일정의 시간을 알려주세요.'
-            msgObj.suggestions = ['오늘', '내일', '모래', '2019-10-24 17:00']
+            msgObj.suggestions = ['오늘', '내일', '모래', '다음 주 월요일', '2019-10-24 17:00']
             break;
           case 1:
             messageToSend = '일정을 추가합니다.'
@@ -124,6 +124,8 @@ export default {
               this.eventForm.start = new Date().addDays(1)//toYYYYMMDDHHMMSS(new Date().addDays(1))
             } else if(msg == '모래'){
               this.eventForm.start = new Date().addDays(2)
+            } else if(msg == '다음 주 월요일'){
+              this.eventForm.start = new Date().addDays(3)
             } else {
               this.eventForm.start = msg.trim();
             }
