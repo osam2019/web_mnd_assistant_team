@@ -1,7 +1,7 @@
 
 # 국방 어시스턴트
 <img src='https://img.shields.io/badge/license-MIT-green.svg'>
-<img src='https://img.shields.io/badge/logo-test-blue?logo=facebook&logoColor=white'>
+<img src='https://img.shields.io/badge/logo-test-blue?logo=Vue.js&logoColor=white'>
 
 <img src='public/mnd_logo.png'>
 
