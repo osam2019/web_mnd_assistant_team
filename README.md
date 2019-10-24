@@ -1,6 +1,10 @@
 
 # 국방 어시스턴트
 <img src='public/login.png'>
+
+[유튜브 데모](https://youtu.be/Hd8m1uNT5LY)
+
+
 국군 인트라넷 주요 행정 체계들을 하나의 SPA(Single Page Application)로 통합하여 구축하고 Ai기술을 활용한 Chatbot 기능을 통해 사용자가 대화식 행정처리를 할 수 있도록 개발하였습니다.
 포함된 주요 행정 체계는 다음과 같습니다.<br><br>
 <img src='public/all.png'>
