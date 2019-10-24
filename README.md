@@ -19,7 +19,10 @@
 Google Chrome 사용
 
 # 설치 안내 (Installation Process)
-yarn
+`yarn install`
+
+#### 서버 시작
+`yarn run serve`
 
 # 사용법 (Getting Started)
 <ol>
