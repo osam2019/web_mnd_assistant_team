@@ -27,6 +27,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+.el-button.el-button--primary{
+  border-bottom: 2px solid #007dff;
+}
+.el-button.el-button--info{
+  border-bottom: 2px solid #71757b;
+}
+.el-button.el-button--notify{
+  border-bottom: 2px solid #ddd;
+}
 .el-button.button-boing:hover {
   -webkit-transform: translate(0, -2px);
   -ms-transform: translate(0, -2px);
