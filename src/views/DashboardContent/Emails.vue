@@ -2,7 +2,7 @@
   <div>
     <div style="padding: 12px 18px 0px;">
       <el-button class="button-boing" type="primary" round
-        @click="toggleMailForm">
+        @click="openAndClearForm">
         <font-awesome-icon icon="plus"/>
         메일 쓰기
       </el-button>
@@ -59,7 +59,7 @@
       <div style="float: right;">
 
         <el-button class="button-boing" type="danger" round
-          @click="deleteEmail">
+          @click="deleteEmails">
           <font-awesome-icon icon="trash-alt" />
         </el-button>
 
@@ -113,7 +113,7 @@
       title="메일 쓰기"
       :visible.sync="openMailForm"
     >
-      <el-form :model="mailForm">
+      <el-form :model="mailForm" ref="mailForm">
 
         <el-form-item style="margin-top: 8px">
           <el-input v-model="mailForm.to" type="text" placeholder="받는이">
@@ -170,7 +170,7 @@
 
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="openMailForm = false" round>보내기</el-button>
+        <el-button type="primary" @click="onSubmit" round>보내기</el-button>
         <el-button @click="openMailForm = false" round>취소</el-button>
       </span>
     </el-dialog>
@@ -183,9 +183,12 @@ export default {
   data() {
     return {
       mailForm: {
-        to: '',
+        from: '상병 이은상',
+        id: '',
+        to: "이은상 <eunshang@mnd.mil>;",
         title: '',
-        content: ''
+        content: '',
+        date: '2019-10-24'
       },
       activeCollapses: [],
       multipleSelection: [],
@@ -199,17 +202,39 @@ export default {
     openMailForm: {
       get: function(){ return this.$store.getters['email/getOpenMailForm'] },
       set: function(b){ return this.$store.dispatch('email/setOpenMailForm', b, {root: true}) }
+    },
+    to: {
+      get: function(){ return this.$store.getters['email/getTo'] },
+      set: function(s){ return this.$store.dispatch('email/setTo', s, {root: true}) }
     }
   },
   methods: {
-    addEmail(mail){
-      this.$store.dispatch('email/addEmail', mail, {root: true})
+    onSubmit(){
+      this.addEmail(this.mailForm);
+      
+      this.$refs['mailForm'].resetFields()
+      this.mailForm.to = "이은상 <eunshang@mnd.mil>;";
+      this.mailForm.title = '';
+      this.mailForm.content = '';
+
+      this.toggleMailForm(); 
     },
-    deleteEmail(){
-      let mails = this.multipleSelection;
-      for(let mail in mails){
-        this.$store.dispatch('email/deleteEmail', mail, {root: true})
-      }
+    clearForm(){
+      this.$refs['mailForm'].resetFields()
+      // this.mailForm.to = "이은상 <eunshang@mnd.mil>;"
+    },
+    addEmail(mail){
+      mail.id = Math.floor(Math.random() * 9999999999999)
+      const clone = JSON.parse(JSON.stringify(mail));
+
+      this.$store.dispatch('email/addEmail', clone, {root: true})
+    },
+    deleteEmails(){
+      this.$store.dispatch('email/deleteEmails', this.multipleSelection, {root: true})
+    },
+    openAndClearForm(){
+      this.openMailForm = true
+      this.clearForm()
     },
     toggleMailForm(){
       this.openMailForm = !this.openMailForm
@@ -231,7 +256,7 @@ export default {
       console.log(this.multipleSelection);
     },
     writeToMe(){
-      this.mailForm.to = "eunshang@mnd.mil"
+      this.mailForm.to = "이은상 <eunshang@mnd.mil>;"
     }
   }
 }

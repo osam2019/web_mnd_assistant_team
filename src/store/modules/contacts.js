@@ -17,7 +17,7 @@ const state = {
       rank: "상병",
       name: "이은상",
       affiliation: "공사 근지단 정통대대 사이버방호중대 정보체계운영반",
-      email: "18-70012907@af.mil"
+      email: "eunshang@af.mil"
     }, {
       id: '4',
       rank: "병장",

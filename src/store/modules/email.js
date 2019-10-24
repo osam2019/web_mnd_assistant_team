@@ -37,30 +37,26 @@ const state = {
       title: "RE: RE: 안녕하십니까"
     }
   ],
-  openMailForm: false
+  openMailForm: false,
+  to: ''
 }
 
 const mutations = {
 addEmail: (state, mail) => {
-  state.emailList = [...state.emailList, mail]
+  state.emailList = [mail, ...state.emailList]
 },
 deleteEmail: (state, mail) => {
-  //DONT USE
-  // const toDelete
-
-  // const toDelete = new Set(['abc', 'efg']);
-  // const newArray = arrayOfObjects.filter(obj => !toDelete.has(obj.id));
-
-  state.emailList = state.emailList.filter((val, index, arr) => {
-    return val.id != mail.id
-  })
+  console.log('not working')
 },
 deleteEmails: (state, mails) => {
-  const toDelete = mails.map(m => m.id);
-  state.emailList = state.emailList.filter(mail => !toDelete.has(mail.id));
+  let toDelete = mails.map(m => m.id);
+  state.emailList = state.emailList.filter(mail => !toDelete.includes(mail.id));
 },
 setOpenMailForm: (state, b) => {
   state.openMailForm = b
+},
+setTo: (state, str) => {
+  state.openMailForm = str
 }
 }
 
@@ -68,11 +64,14 @@ const actions = {
 addEmail: (context, m) => {
   context.commit('addEmail', m)
 },
-deleteEmail: (context, m) => {
-  context.commit('deleteEmail', m)
+deleteEmails: (context, m) => {
+  context.commit('deleteEmails', m)
 },
 setOpenMailForm: (context, b) => {
   context.commit('setOpenMailForm', b)
+},
+setTo: (context, str) => {
+  context.commit('setTo', str)
 }
 }
 
@@ -82,6 +81,9 @@ getMails: (state) => {
 },
 getOpenMailForm: (state) => {
   return state.openMailForm
+},
+getTo: (state) => {
+  return state.to
 }
 }
 

@@ -144,6 +144,16 @@ export default {
           }
           this.isTakingInput--;
 
+        } else if(msg.includes('메일') && (msg.includes('보내') || msg.includes('보낼'))){
+          messageToSend = '메일 창을 열어드리겠습니다.'
+
+          let t = this;
+          setTimeout(() => {
+            t.$router.push('/dashboard/emails');
+            t.$store.dispatch('email/setOpenMailForm', true, {root: true})
+            t.$store.dispatch('email/setTo', "이은상 <eunshang@mnd.mil>;", {root: true})
+          }, 1500);
+
         } else if(msg.includes('일정') && (msg.includes('추가') || msg.includes('더해'))){
           this.isTakingInput = 2;
           messageToSend = '일정의 제목을 알려주세요.'
