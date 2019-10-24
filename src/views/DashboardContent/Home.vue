@@ -1,8 +1,8 @@
 <template>
   <div id="home">
-    <div style="padding: 0 240px 0">
+    <div style="padding: 0 20% 0">
       <el-carousel :interval="3000" arrow="never" type="card"
-        height="360px">
+        height="390px">
         <el-carousel-item v-for="item in carouselItems" :key="item.id">
           
           <el-image
@@ -206,9 +206,6 @@ export default {
 }
 .up {
   text-align: center;
-  margin-top: 0px;
-  padding: 4px 16px;
-  line-height: 12px;
   color: aliceblue
 }
 .el-progress {
