@@ -9,7 +9,7 @@
 - [데모](https://mnd-assistant.netlify.com/)
 - [발표 영상](https://youtu.be/Yh3d5xtsPMc)
 - [발표 자료 다운로드](https://github.com/osam2019/web_mnd_assistant_team/raw/master/%EA%B5%AD%EB%B0%A9%20%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8(%ED%8C%80%EB%AA%85%20%EB%AF%B8%EC%81%98%EB%AF%B8)%20%EC%9D%B4%EC%A0%95%ED%95%84%2C%20%EC%9D%B4%EC%9D%80%EC%83%81.pptx)
-- [개발 문서]([https://github.com/osam2019/web_mnd_assistant_team/blob/master/%EA%B5%AD%EB%B0%A9%20%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8(%ED%8C%80%EB%AA%85%20%EB%AF%B8%EC%81%98%EB%AF%B8)%20%EC%9D%B4%EC%A0%95%ED%95%84%2C%EC%9D%B4%EC%9D%80%EC%83%81-Dev%20doc(%EA%B0%95%EC%82%AC%ED%99%95%EC%9D%B8%EC%9A%A9).pdf](https://github.com/osam2019/web_mnd_assistant_team/blob/master/%EA%B5%AD%EB%B0%A9%20%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8(%ED%8C%80%EB%AA%85%20%EB%AF%B8%EC%81%98%EB%AF%B8)%20%EC%9D%B4%EC%A0%95%ED%95%84%2C%EC%9D%B4%EC%9D%80%EC%83%81-Dev%20doc(%EA%B0%95%EC%82%AC%ED%99%95%EC%9D%B8%EC%9A%A9).pdf))
+- [개발 문서](https://github.com/osam2019/web_mnd_assistant_team/blob/master/%EA%B5%AD%EB%B0%A9%20%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8(%ED%8C%80%EB%AA%85%20%EB%AF%B8%EC%81%98%EB%AF%B8)%20%EC%9D%B4%EC%A0%95%ED%95%84%2C%EC%9D%B4%EC%9D%80%EC%83%81-Dev%20doc(%EA%B0%95%EC%82%AC%ED%99%95%EC%9D%B8%EC%9A%A9).pdf)
 
 국군 인트라넷 주요 행정 체계들을 하나의 SPA(Single Page Application)로 통합하여 구축하고 Ai기술을 활용한 `ChatBot` 기능을 통해 사용자가 대화식 행정처리를 할 수 있도록 개발하였습니다.
 포함된 주요 행정 체계는 다음과 같습니다.
