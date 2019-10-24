@@ -53,6 +53,24 @@ const state = {
     title: '외부업체 인솔',
     content: '부대 정문',
     class: 'work'
+  }, {
+    start: '2019-10-29 00:00',
+    end: '2019-10-29 02:00',
+    title: '병사의 날',
+    content: '',
+    class: 'leisure'
+  }, {
+    start: '2019-10-31 18:30',
+    end: '2019-10-31 20:30',
+    title: '반 회식',
+    content: '삼겹살집',
+    class: 'work'
+  }, {
+    start: '2019-11-08 07:30',
+    end: '2019-11-09 00:00',
+    title: '당직 ㅠㅠ',
+    content: '102동 생활관',
+    class: 'reservation'
   }
   ],
   editEventDialogVisible: false
