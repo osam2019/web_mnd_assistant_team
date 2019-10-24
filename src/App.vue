@@ -36,6 +36,19 @@ body {
 .el-button.el-button--notify{
   border-bottom: 2px solid #ddd;
 }
+.el-button.el-button--danger{
+  border-bottom: 2px solid #d05d5d;
+}
+.el-button.el-button--warning{
+  background-color: #efb866;
+  border-color: #efb866;
+  border-bottom: 2px solid #E6A23C;
+}
+.el-button--warning:hover, .el-button--warning:focus {
+    background: #f9c982 !important;
+    border-color: #f9c982 !important;
+    color: #FFFFFF;
+}
 .el-button.button-boing:hover {
   -webkit-transform: translate(0, -2px);
   -ms-transform: translate(0, -2px);
