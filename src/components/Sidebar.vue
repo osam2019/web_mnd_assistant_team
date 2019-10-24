@@ -67,13 +67,13 @@
 
       <el-menu-item index="/dashboard/settings">
         <font-awesome-icon
-          icon="cog"
+          icon="graduation-cap"
           size="2x"
         />
         <span
           slot="title"
           class="rs"
-        >설정</span>
+        >AI 학습하기</span>
       </el-menu-item>
     </el-menu>
   </div>

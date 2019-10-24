@@ -10,12 +10,12 @@ import Chat from 'vue-beautiful-chat'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faCog, faEnvelope, faAddressCard, 
   faCalendar, faQuestionCircle, faClipboardCheck,
-faHamburger } from '@fortawesome/free-solid-svg-icons'
+faHamburger, faPlus, faGraduationCap, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faBars, faCog, faEnvelope, faAddressCard, 
   faCalendar, faQuestionCircle, faClipboardCheck,
-  faHamburger)
+  faHamburger, faPlus, faGraduationCap, faInfoCircle)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 //Add Element UI Chalk CSS Theme

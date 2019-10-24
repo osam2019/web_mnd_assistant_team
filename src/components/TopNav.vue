@@ -15,8 +15,8 @@
       <template slot="title">
         <div style="display:inline-block;">
           <el-image
-            style="width: 200px;height: 50px"
-            src="/mnd_logo.png"
+            style="width: 200px;height: 50px; vertical-align: baseline; margin-top: 5px;"
+            src="/mnd_logo_white.png"
             fit="contain"
           />
         </div>
@@ -25,10 +25,16 @@
     
     <el-menu-item index="/dashboard/about">
       <font-awesome-icon
-        icon="hamburger"
+        icon="info-circle"
         size="lg"
       />
       <span slot="title">정보</span>
+    </el-menu-item>
+    <el-menu-item @click="hamburger">
+      <font-awesome-icon
+        icon="hamburger"
+        size="lg"
+      />
     </el-menu-item>
   </el-menu>
 </template>
@@ -44,6 +50,13 @@ export default {
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
+    },
+    hamburger(){
+      this.$notify({
+        title: '햄버거',
+        message: '햄버거 햄버거',
+        type: 'success'
+      });
     }
   }
 }
