@@ -1,6 +1,10 @@
 
 # 국방 어시스턴트
+[![Netlify Status](https://api.netlify.com/api/v1/badges/be6cda7a-597c-46a7-9963-48ccd75bde65/deploy-status)](https://app.netlify.com/sites/mnd-assistant/deploys)
+
 <img src='https://img.shields.io/badge/license-MIT-green.svg'> <a href="http://www.mnd.go.kr/mbshome/mbs/mnd/subview.jsp?id=mnd_060202000000" target="_blank"><img src='https://img.shields.io/badge/logo-Mnd-blue.svg'></a>
+
+
 
 <img src='public/mnd_logo.png'>
 
