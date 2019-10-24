@@ -1,11 +1,13 @@
 
 # 국방 어시스턴트
-<img src='public/login.png'>
+<img src='https://img.shields.io/badge/license-MIT-green.svg'> <a href="http://www.mnd.go.kr/mbshome/mbs/mnd/subview.jsp?id=mnd_060202000000" target="_blank"><img src='https://img.shields.io/badge/logo-Mnd-blue.svg'></a>
+
+<img src='public/mnd_logo.png'>
 
 [유튜브 데모](https://youtu.be/Hd8m1uNT5LY)
 
 
-국군 인트라넷 주요 행정 체계들을 하나의 SPA(Single Page Application)로 통합하여 구축하고 Ai기술을 활용한 Chatbot 기능을 통해 사용자가 대화식 행정처리를 할 수 있도록 개발하였습니다.
+국군 인트라넷 주요 행정 체계들을 하나의 SPA(Single Page Application)로 통합하여 구축하고 Ai기술을 활용한 `ChatBot` 기능을 통해 사용자가 대화식 행정처리를 할 수 있도록 개발하였습니다.
 포함된 주요 행정 체계는 다음과 같습니다.<br><br>
 <img src='public/all.png'>
 <ul>
@@ -15,7 +17,7 @@
 <li>예약 체계</li>
 <li>챗봇 학습 체계</li>
 </ul>
-상기 기능들은 아래와 같은 Chatbot 시스템에 의해 관리됩니다.
+상기 체계 기능들은 아래와 같은 `ChatBot` 시스템에 의해 관리됩니다.<br>
 상기 기능 이외에 사전 Dataset을 통한 일반적인 질문 답변이 가능합니다.
 <div style='text-align: center'><img src='public/chatbot.png'></div>
 
@@ -54,10 +56,10 @@ $ yarn run serve
 
 # 팀 정보 (Team Information)
 
-미쁘미 팀
+팀명 미쁘미<br><br>
 공군사관학교
-* 병장 이정필
-* 상병 이은상
+* 병장 이정필(j2ongp@gmail.com)
+* 상병 이은상(leetdavid@outlook.com)
 
 
 # License
