@@ -3,7 +3,7 @@
   <el-row style="padding: 100px 24px 0px">
     <el-col
       :xl="8"
-      :md="12"
+      :md="8"
       :sm="24"
     >
       <div>
@@ -30,7 +30,7 @@
     </el-col>
     <el-col
       :xl="8"
-      :md="12"
+      :md="8"
       :sm="24"
     >
       <figcaption class="form1 grid-content bg-purple-light ">
@@ -54,7 +54,7 @@
     </el-col>
     <el-col
       :xl="8"
-      :md="12"
+      :md="8"
       :sm="24"
     >
       <div class="form1 grid-content bg-purple-light ">
@@ -192,7 +192,7 @@ export default {
   font-size: 20pt;
 }
 .button{
-  width : 400px;
+  width : 90%;
   line-height : 3;
 }
 .logo {
@@ -201,7 +201,6 @@ export default {
   
   .form1
   {
-  width : 500px;
   overflow : hidden;
 	padding-bottom: 30px;
 	background: white;
