@@ -1,4 +1,5 @@
 <template>
+  <div>
   <el-row style="padding: 100px 24px 0px">
     <el-col
       :xl="8"
@@ -58,14 +59,14 @@
     >
       <div class="form1 grid-content bg-purple-light ">
         <div>
-          <img style="margin-top: 24px; width:500px; height: auto;"
-            src="https://better-renew.co.kr/wp-content/uploads/2018/02/ico_1.png"
+          <img style="margin-top: 24px"
+            src="/support.png"
           >
           <figcaption>기타</figcaption>
         </div>
         <el-divider />
-        <div>
-          <el-button
+
+        <el-button
             class="button button-boing"
             type="primary"
             @click="dialogFormVisible = true"
@@ -73,7 +74,15 @@
             직접 신청
           </el-button>
 
-          <el-dialog
+        <div>
+          
+
+          
+        </div>
+      </div>
+    </el-col>
+  </el-row>
+  <el-dialog
             title="장비 수리 신청"
             :visible.sync="dialogFormVisible"
           >
@@ -140,10 +149,7 @@
               >신청</el-button>
             </span>
           </el-dialog>
-        </div>
-      </div>
-    </el-col>
-  </el-row>
+  </div>
 </template>
 
 <script>
@@ -154,7 +160,6 @@ export default {
         user_name: ''
         
       },
-      dialogTableVisible: false,
       dialogFormVisible: false,
       form: {
           name: '',
