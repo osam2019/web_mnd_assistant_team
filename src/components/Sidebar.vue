@@ -1,5 +1,4 @@
 <template>
-  <div>
     <el-menu 
       :default-active="activeLink" 
       class="el-menu-vertical-demo" 
@@ -76,7 +75,6 @@
         >AI 학습하기</span>
       </el-menu-item>
     </el-menu>
-  </div>
 </template>
 
 <script>

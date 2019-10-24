@@ -76,12 +76,8 @@
     </div>
     <el-divider></el-divider>
     
-    <el-row>
-      <el-col :span="24">
-
-        <el-table
+    <el-table
       :data="emailData"
-      :resizable="true"
       @selection-change="handleSelectionChange"
     >
       <el-table-column
@@ -104,16 +100,13 @@
         property="date"
         label="날짜"
         width="120"
-        fixed="right"
+        
       ><template slot-scope="scope">{{scope.row.date}}</template>
         <template slot-scope="scope">
           {{ scope.row.date }}
         </template>
       </el-table-column>
     </el-table>
-
-      </el-col>
-    </el-row>
     
 
     <el-dialog 

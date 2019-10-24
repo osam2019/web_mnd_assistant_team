@@ -7,12 +7,10 @@
           <TopNav />
         </div>
         
+        <div class="temp-container">
         <Sidebar />
-        
-        <!-- <div class="right" /> -->
-        <el-collapse-transition>
-          <router-view/>
-        </el-collapse-transition>
+        <router-view class="content"/>
+        </div>
       </div>
       
     </div>
@@ -40,19 +38,16 @@ export default {
 </script>
 
 <style scoped>
-.parent {
-  display: grid;
-  grid-template-columns: 0fr 6fr 0fr;
-  grid-template-rows: 64px 100%;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  margin: 0px;
+
+.temp-container {
+  display:flex;
 }
 
-.top { grid-area: 1 / 1 / 2 / 6; }
-.left { grid-area: 2 / 1 / 6 / 2; }
-.center { grid-area: 2 / 2 / 6 / 3; }
-.right { grid-area: 2 / 3 / 6 / 4; }
+.temp-container > .content {
+  flex:1;
+  display: grid;
+  grid-auto-rows: min-content;
+}
 
 .el-button.el-button--primary{
   border-bottom: 2px solid #007dff;
