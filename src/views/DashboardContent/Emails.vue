@@ -210,14 +210,25 @@ export default {
   },
   methods: {
     onSubmit(){
-      this.addEmail(this.mailForm);
-      
-      this.$refs['mailForm'].resetFields()
-      this.mailForm.to = "이은상 <eunshang@mnd.mil>;";
-      this.mailForm.title = '';
-      this.mailForm.content = '';
 
-      this.toggleMailForm(); 
+      const loading = this.$loading({
+        lock: true,
+        text: '메일 보내는 중',
+        // spinner: 'el-icon-loading',
+        // background: 'rgba(0, 0, 0, 0.7)'
+      });
+      setTimeout(() => {
+        this.addEmail(this.mailForm);
+      
+        this.$refs['mailForm'].resetFields()
+        this.mailForm.to = "이은상 <eunshang@mnd.mil>;";
+        this.mailForm.title = '';
+        this.mailForm.content = '';
+
+        this.toggleMailForm(); 
+        loading.close()
+      }, 900);
+      
     },
     clearForm(){
       this.$refs['mailForm'].resetFields()
