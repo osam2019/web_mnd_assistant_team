@@ -30,7 +30,8 @@
       />
       <span slot="title">정보</span>
     </el-menu-item>
-    <el-menu-item @click="hamburger">
+
+    <el-menu-item @click="hamburger" style="float: right">
       <font-awesome-icon
         icon="hamburger"
         size="lg"
@@ -63,6 +64,15 @@ export default {
 </script>
 
 <style scoped>
+.el-menu--horizontal > .el-menu-item {
+  height: 64px !important;
+}
+.el-menu.el-menu--horizontal {
+  -webkit-box-shadow: 0px -63px 65px 36px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -63px 65px 36px rgba(0,0,0,0.75);
+  box-shadow: 0px -63px 65px 36px rgba(0,0,0,0.75);
+  border-bottom: 2px solid rgb(49, 144, 198);
+}
 span {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 500;

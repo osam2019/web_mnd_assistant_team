@@ -75,9 +75,13 @@
 
     </div>
     <el-divider></el-divider>
-    <el-table
+    
+    <el-row>
+      <el-col :span="24">
+
+        <el-table
       :data="emailData"
-      style=" width: 100%"
+      :resizable="true"
       @selection-change="handleSelectionChange"
     >
       <el-table-column
@@ -94,7 +98,6 @@
       <el-table-column
         property="title"
         label="제목"
-        show-overflow-tooltip
       />
 
       <el-table-column
@@ -108,6 +111,10 @@
         </template>
       </el-table-column>
     </el-table>
+
+      </el-col>
+    </el-row>
+    
 
     <el-dialog 
       title="메일 쓰기"

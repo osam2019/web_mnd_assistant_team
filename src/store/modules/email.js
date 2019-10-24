@@ -84,6 +84,9 @@ getOpenMailForm: (state) => {
 },
 getTo: (state) => {
   return state.to
+},
+getOnly6: (state) => {
+  return state.emailList.slice(0, 6)
 }
 }
 

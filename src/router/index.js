@@ -11,6 +11,7 @@ import Contacts from '../views/DashboardContent/Contacts.vue'
 import Calendar from '../views/DashboardContent/Calendar.vue'
 import Settings from '../views/DashboardContent/Settings.vue'
 import Reservation from '../views/DashboardContent/Reservation.vue'
+import Home from '../views/DashboardContent/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -22,7 +23,7 @@ const routes = [
   {
     path: '/dashboard', component: Dashboard,
     children: [{
-        path: '', component: Emails
+        path: '', component: Home,
       }, {
         path: 'emails', component: Emails
       }, {

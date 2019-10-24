@@ -273,4 +273,10 @@ export default {
 .sc-message {
   width: 430px !important;
 }
+.sc-launcher {
+  z-index: 1;
+  -webkit-box-shadow: 5px 5px 24px -4px rgba(0,0,0,0.75) !important;
+  -moz-box-shadow: 5px 5px 24px -4px rgba(0,0,0,0.75) !important;
+  box-shadow: 5px 5px 24px -4px rgba(0,0,0,0.75) !important;
+}
 </style>

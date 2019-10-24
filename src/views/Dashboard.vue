@@ -3,19 +3,16 @@
     <div>
       <ChatScreen />
       <div class="parent">
-        <div class="top">
+        <div class="top" style="z-index: 1">
           <TopNav />
         </div>
-        <div class="left">
-          <Sidebar />
-        </div>
         
-        <div class="right" />
-        <div class="center">
-          <el-collapse-transition>
-            <router-view style="z-index: 0;"/>
-          </el-collapse-transition>
-        </div>
+        <Sidebar />
+        
+        <!-- <div class="right" /> -->
+        <el-collapse-transition>
+          <router-view/>
+        </el-collapse-transition>
       </div>
       
     </div>

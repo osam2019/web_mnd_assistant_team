@@ -4,7 +4,7 @@
       :data="contactsList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()) || data.affiliation.toLowerCase().includes(search.toLowerCase()))"
       :default-sort="{prop: 'name', order: 'ascending'}"
       style="width: 100%"
-      
+      :resizable="true"
       @selection-change="handleSelectionChange"
     >
       <el-table-column
@@ -49,6 +49,7 @@
         label="이메일"
         show-overflow-tooltip
         width="180"
+        
         sortable
       />
 
