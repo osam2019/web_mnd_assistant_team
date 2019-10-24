@@ -10,7 +10,7 @@
         <div class="form1 grid-content bg-purple-light ">
           <div>
             <img style="margin-top: 24px"
-              src="/bug.png"
+              src="/icon__11_.png"
               
             >
             <figcaption>제 1구역(학교 지역)</figcaption>
@@ -36,7 +36,7 @@
       <figcaption class="form1 grid-content bg-purple-light ">
         <figcaption>
           <img style="margin-top: 24px"
-            src="/car.png"
+            src="/icon__10_.png"
           >
           <figcaption>제 2구역(성무 지역)</figcaption>
         </figcaption>
@@ -60,7 +60,7 @@
       <div class="form1 grid-content bg-purple-light ">
         <div>
           <img style="margin-top: 24px"
-            src="/support.png"
+            src="/talk.png"
           >
           <figcaption>기타</figcaption>
         </div>
@@ -103,7 +103,7 @@
                 :label-width="formLabelWidth"
               >
                 <el-input
-                  v-model="form.name"
+                  v-model="form.date2"
                   style="width:350px"
                   autocomplete="off"
                 />
@@ -113,7 +113,7 @@
                 :label-width="formLabelWidth"
               >
                 <el-input
-                  v-model="form.name"
+                  v-model="form.date1"
                   style="width:350px"
                   autocomplete="off"
                 />
