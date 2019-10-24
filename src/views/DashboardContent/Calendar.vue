@@ -3,20 +3,23 @@
     <vue-cal 
       :selected-date="new Date().toISOString()"
       :startWeekOnSunday="true"
-      :time-from="9 * 60"
+      :time-from="8 * 60"
       :disable-views="['years', 'year']"
       default-view="month"
       events-on-month-view="short"
+      :todayButton="true"
       editable-events
       :events="events"
       locale="ko">
     </vue-cal>
 
-    <el-button
-      type="primary"
-      @click="toggleEventForm">
-      이벤드 등록하기
-    </el-button>
+    <div style="position: absolute; top: 81px; left: 370px">
+      <el-button
+        @click="toggleEventForm"
+        icon="el-icon-plus"
+        circle>
+      </el-button>
+    </div>
 
     <el-dialog
       v-loading="loading"
@@ -65,10 +68,10 @@
         </el-form-item>
 
         <el-form-item>
-          <el-button type="primary" @click="onSubmit">
+          <el-button type="primary" @click="onSubmit" class="button-boing" round>
             저장하기
           </el-button>
-          <el-button @click="toggleEventForm">취소</el-button>
+          <el-button @click="toggleEventForm" class="button-boing" round>취소</el-button>
         </el-form-item>
 
       </el-form>
@@ -213,9 +216,11 @@ export default {
 .vuecal__event-title.vuecal__event-title--edit { font-size: 0.9em; }
 
 .vuecal--month-view .vuecal__cell-date {padding: 4px;}
-.vuecal--month-view .vuecal__no-event {display: none;}
+.vuecal__no-event { display: none; }
+button.vuecal__today-btn { width: 60px; }
 
 .vuecal__event.leisure {background-color: rgba(253, 156, 66, 0.9);border: 1px solid rgb(233, 136, 46);color: #fff;}
 .vuecal__event.work {background-color: rgba(171, 211, 238, 0.9);border: 1px solid rgb(150, 201, 235);color: #444;}
 .vuecal__event.holiday {background-color: rgba(245, 108, 108, 0.9);border: 1px solid rgb(242, 74, 74);color: #fff;}
+.vuecal__event.reservation {background-color: rgba(200, 200, 200, 0.9);border: 1px solid rgb(170, 170, 170);color: #222;}
 </style>
