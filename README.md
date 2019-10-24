@@ -56,10 +56,10 @@ $ yarn run serve
 
 # 팀 정보 (Team Information)
 
-미쁘미 팀
+팀명 미쁘미<br><br>
 공군사관학교
-* 병장 이정필
-* 상병 이은상
+* 병장 이정필(j2ongp@gmail.com)
+* 상병 이은상(leetdavid@outlook.com)
 
 
 # License
