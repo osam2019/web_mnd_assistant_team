@@ -1,6 +1,6 @@
 
 # 국방 어시스턴트
-<img src='public/login.png'>
+<img src='public/mnd_logo.png'>
 
 [유튜브 데모](https://youtu.be/Hd8m1uNT5LY)
 
