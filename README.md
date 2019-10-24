@@ -16,13 +16,21 @@
 <div style='text-align: center'><img src='public/chatbot.png'></div>
 
 # 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
-Google Chrome 사용
+ECMAScript 6 지원 브라우저 사용
+
+권장: Google Chrome 버젼
+
+사용한 Google Chrome 버젼: `77.0.3865.120(공식 빌드) (64비트)`
 
 # 설치 안내 (Installation Process)
-`yarn install`
+```bash
+$ yarn install
+```
 
 #### 서버 시작
-`yarn run serve`
+```bash
+$ yarn run serve
+```
 
 # 사용법 (Getting Started)
 <ol>
@@ -43,6 +51,13 @@ Google Chrome 사용
 # 팀 정보 (Team Information)
 
 미쁘미 팀
-공군사관학교 병장 이정필, 상병 이은상
+공군사관학교
+* 병장 이정필
+* 상병 이은상
 
 
+# License
+이 프로젝트는 (즉, `src` 디렉토리 안의 모든 코드) [GNU 일반 공중 사용 허가서 v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) 에 따라 라이센스가 부여됩니다.
+
+This project (i.e. all code inside of the `src` directory) is licensed under the
+[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
