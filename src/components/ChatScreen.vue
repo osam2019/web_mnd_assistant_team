@@ -196,6 +196,9 @@ export default {
             messageToSend = '바이러스가 걸리셨으면 0188, 정보보호반에 전화주시면 됩니다.'
           } else if(msg.includes('계정') && msg.includes('잠겼')){
             messageToSend = '계정이 잠기셨으면 4587, 정보체계운영반에 전화주시면 됩니다.'
+          } else {
+            let idk = ['죄송합니다. 잘 모르겠네요.'];
+            messageToSend = idk[Math.floor(Math.random() * idk.length)];
           }
         } else if(msg.includes('안녕')){
           let hi = ['안녕하세요!', '안녕하십니까!', '좋은 하루에요.'];
