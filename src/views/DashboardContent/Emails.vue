@@ -1,5 +1,80 @@
 <template>
   <div>
+    <div style="padding: 12px 18px 0px;">
+      <el-button class="button-boing" type="primary" round
+        @click="toggleMailForm">
+        <font-awesome-icon icon="plus"/>
+        메일 쓰기
+      </el-button>
+
+      <el-divider direction="vertical"></el-divider>
+
+      <el-dropdown round split-button type="default">
+        <font-awesome-icon icon="inbox" />
+        <span class="ls">받은 편지함</span>
+
+        <el-dropdown-menu slot="dropdown" class="rounded-dropdown">
+
+          <el-dropdown-item>
+            <font-awesome-icon icon="file" />
+            <span class="ls">임시 메일함</span>
+          </el-dropdown-item>
+
+          <el-dropdown-item>
+            <font-awesome-icon icon="paper-plane" />
+            <span class="ls">보낸 편지함</span>
+          </el-dropdown-item>
+
+          <el-dropdown-item>
+            <font-awesome-icon icon="star" />
+            <span class="ls">중요한 메일</span>
+          </el-dropdown-item>
+          
+          <el-dropdown-item>
+            <font-awesome-icon icon="exclamation-triangle" />
+            <span class="ls">스팸/수상한 메일</span>
+          </el-dropdown-item>
+
+          <el-dropdown-item>
+            <font-awesome-icon icon="trash-alt" />
+            <span class="ls">삭제된 메일</span>
+          </el-dropdown-item>
+
+        </el-dropdown-menu>
+      </el-dropdown>
+
+      <el-divider direction="vertical"></el-divider>
+
+      <el-button class="button-boing" type="warning" round>
+        <font-awesome-icon icon="star"/>
+      </el-button>
+
+      <el-button class="button-boing" type="danger" round
+        style="margin-left: 16px">
+        <font-awesome-icon icon="exclamation"/>
+        <span class="ls">해킹메일 신고</span>
+      </el-button>
+
+      <!-- Floated to right -->
+      <div style="float: right;">
+
+        <el-button class="button-boing" type="danger" round
+          @click="deleteEmail">
+          <font-awesome-icon icon="trash-alt" />
+        </el-button>
+
+        <el-divider direction="vertical"></el-divider>
+
+        <el-button class="button-boing" type="info" round>
+          <font-awesome-icon icon="ellipsis-v"/>
+        </el-button>
+
+      </div>
+
+      
+
+    </div>
+    <el-divider></el-divider>
     <el-table
       :data="emailData"
       style=" width: 100%"
@@ -33,6 +108,73 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <el-dialog 
+      title="메일 쓰기"
+      :visible.sync="openMailForm"
+    >
+      <el-form :model="mailForm">
+
+        <el-form-item style="margin-top: 8px">
+          <el-input v-model="mailForm.to" type="text" placeholder="받는이">
+            <el-button slot="prepend" type="default" round @click="writeToMe">내게쓰기</el-button>
+            <el-button slot="append" type="default" round>Cc</el-button>
+            <el-button slot="append" type="default" round>Bcc</el-button>
+          </el-input>
+        </el-form-item>
+
+        
+
+        <el-form-item>
+          <el-input v-model="mailForm.title" type="text" placeholder="제목"></el-input>
+        </el-form-item>
+
+<!-- faPaperclip, faFont, faTextWidth, faTextHeight,
+  faStrikethrough, faUnderline, faItalic -->
+
+        <el-button-group>
+          <el-button round><font-awesome-icon icon="paperclip"/> 
+            <span class="ls">파일 첨부</span>
+          </el-button>
+          
+          <el-tooltip class="item" effect="dark" content="글씨체" placement="top">
+            <el-button round><font-awesome-icon icon="font"/></el-button>
+          </el-tooltip>
+          
+          <el-tooltip class="item" effect="dark" content="글 크기" placement="top">
+            <el-button round><font-awesome-icon icon="text-height"/></el-button>
+          </el-tooltip>
+
+          <el-tooltip class="item" effect="dark" content="굵게" placement="top">
+            <el-button round><font-awesome-icon icon="bold"/></el-button>
+          </el-tooltip>
+
+          <el-tooltip class="item" effect="dark" content="취소선" placement="top">
+            <el-button round><font-awesome-icon icon="strikethrough"/></el-button>
+          </el-tooltip>
+
+          <el-tooltip class="item" effect="dark" content="밑줄" placement="top">
+            <el-button round><font-awesome-icon icon="underline"/></el-button>
+          </el-tooltip>
+
+          <el-tooltip class="item" effect="dark" content="이태릭체" placement="top">
+            <el-button round><font-awesome-icon icon="italic"/></el-button>
+          </el-tooltip>
+
+        </el-button-group>
+
+        <el-form-item style="margin-top: 24px">
+          <el-input v-model="mailForm.content" type="textarea" placeholder="내용을 입력하세요." 
+            :autosize="{ minRows: 8, maxRows: 30}"></el-input>
+        </el-form-item>
+
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="openMailForm = false" round>보내기</el-button>
+        <el-button @click="openMailForm = false" round>취소</el-button>
+      </span>
+    </el-dialog>
+
   </div>
 </template>
 
@@ -40,58 +182,94 @@
 export default {
   data() {
     return {
-      emailData: [{
-        date: "2019-10-22",
-        from: "소위 하늘이",
-        title: "내일 회식에 대해서"
+      mailForm: {
+        to: '',
+        title: '',
+        content: ''
       },
-      {
-        date: "2019-10-22",
-        from: "하사 이정필",
-        title: "RE: RE: AFCCS 교체사업 견적서입니다."
-      },
-      {
-        date: "2019-10-22",
-        from: "상병 이은상",
-        title: "필승! 요청하신 스캔문서입니다."
-      },
-      {
-        date: "2019-10-22",
-        from: "중위 김공군",
-        title: "RE: 필승! 병사 외출 계획서입니다."
-      },
-      {
-        date: "2019-10-21",
-        from: "하사 이정필",
-        title: "AFCCS 교체사업 견적서입니다."
-      }, {
-        date: '2019-10-20',
-        from: '중사 박육군',
-        title: "RE: RE: RE: RE: 안녕하십니까"
-      }, {
-        date: '2019-10-20',
-        from: '중사 박육군',
-        title: "RE: RE: 안녕하십니까"
-      }
-      ]
+      activeCollapses: [],
+      multipleSelection: [],
+      fontSize: 12
+    }
+  },
+  computed: {
+    emailData(){
+      return this.$store.getters['email/getMails'];
+    },
+    openMailForm: {
+      get: function(){ return this.$store.getters['email/getOpenMailForm'] },
+      set: function(b){ return this.$store.dispatch('email/setOpenMailForm', b, {root: true}) }
     }
   },
   methods: {
-      toggleSelection(rows) {
-        if (rows) {
-          rows.forEach(row => {
-            this.$refs.multipleTable.toggleRowSelection(row);
-          });
-        } else {
-          this.$refs.multipleTable.clearSelection();
-        }
-      },
-      handleSelectionChange(val) {
-        this.multipleSelection = val;
+    addEmail(mail){
+      this.$store.dispatch('email/addEmail', mail, {root: true})
+    },
+    deleteEmail(){
+      let mails = this.multipleSelection;
+      for(let mail in mails){
+        this.$store.dispatch('email/deleteEmail', mail, {root: true})
       }
+    },
+    toggleMailForm(){
+      this.openMailForm = !this.openMailForm
+    },
+    toggleSelection(rows) {
+      
+      if (rows) {
+        rows.forEach(row => {
+          this.$refs.multipleTable.toggleRowSelection(row);
+        });
+      } else {
+        this.$refs.multipleTable.clearSelection();
+      }
+    },
+    handleSelectionChange(val) {
+      
+      this.multipleSelection = val;
+
+      console.log(this.multipleSelection);
+    },
+    writeToMe(){
+      this.mailForm.to = "eunshang@mnd.mil"
     }
+  }
 }
 </script>
-<style>
 
+<style>
+.el-divider.el-divider--horizontal {
+  margin: 12px 0;
+}
+.el-divider.el-divider--vertical {
+  margin: 0 16px;
+}
+.divider-narrow {
+  margin: 3px 0 !important;
+  background-color: #ccc;
+}
+.el-dropdown button.el-button.el-button--default {
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+  border-bottom: 2px solid #ccc;
+}
+.el-dropdown button.el-button.el-button--default.el-dropdown__caret-button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+  width: 40px;
+}
+.el-dropdown:hover {
+  -webkit-transform: translate(0, -2px);
+  -ms-transform: translate(0, -2px);
+  transform: translate(0, -2px);
+}
+.ls {
+  margin-left: 12px;
+}
+.el-dialog {
+  width: 80% !important;
+  max-width: 800px;
+}
 </style>
