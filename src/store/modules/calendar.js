@@ -1,19 +1,43 @@
 const state = {
   events: [{
-    start: '2019-10-09',
-    end: '2019-10-11',
+    start: '2019-09-30 09:00',
+    end: '2019-09-30 12:00',
+    title: '사격',
+    content: '',
+    class: 'reservation'
+  },{
+    start: '2019-10-08 00:00',
+    end: '2019-10-08 23:59',
     title: '휴가',
     content: '홍콩 여행',
     class: 'holiday'
   },{
-    start: '2019-10-14',
-    end: '2019-10-14',
+    start: '2019-10-09 00:00',
+    end: '2019-10-09 23:59',
+    title: '휴가',
+    content: '홍콩 여행',
+    class: 'holiday'
+  },{
+    start: '2019-10-10 00:00',
+    end: '2019-10-10 23:59',
+    title: '휴가',
+    content: '홍콩 여행',
+    class: 'holiday'
+  },{
+    start: '2019-10-11 00:00',
+    end: '2019-10-11 23:59',
+    title: '휴가',
+    content: '홍콩 여행',
+    class: 'holiday'
+  },{
+    start: '2019-10-14 00:00',
+    end: '2019-10-14 23:59',
     title: '대체휴일',
     content: '',
     class: 'holiday'
   },{
-    start: '2019-10-21 13:00',
-    end: '2019-10-21 15:00',
+    start: '2019-10-22 13:00',
+    end: '2019-10-22 15:00',
     title: '최하사 생일파티',
     content: '케이크 사오기',
     class: 'leisure'
