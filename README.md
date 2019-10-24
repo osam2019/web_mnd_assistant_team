@@ -1,6 +1,6 @@
 
 # 국방 어시스턴트
-<img src='https://img.shields.io/badge/license-GPLv3-red.svg'> <a href="http://www.mnd.go.kr/mbshome/mbs/mnd/subview.jsp?id=mnd_060202000000" target="_blank"><img src='https://img.shields.io/badge/logo-Mnd-blue.svg'></a>
+<img src='https://img.shields.io/badge/license-MIT-green.svg'> <a href="http://www.mnd.go.kr/mbshome/mbs/mnd/subview.jsp?id=mnd_060202000000" target="_blank"><img src='https://img.shields.io/badge/logo-Mnd-blue.svg'></a>
 
 <img src='public/mnd_logo.png'>
 
