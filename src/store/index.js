@@ -9,9 +9,11 @@ import contacts from './modules/contacts'
 import test from './modules/test'
 import calendar from './modules/calendar'
 import teachai from './modules/teachai'
+import email from './modules/email'
 
 export default new Vuex.Store({
   modules: {
+    email : email,
     teachai: teachai,
     calendar: calendar,
     test: test,
