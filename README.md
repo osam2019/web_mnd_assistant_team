@@ -24,7 +24,8 @@
 상기 체계 기능들은 아래와 같은 `ChatBot` 시스템에 의해 관리됩니다.<br>
 상기 기능 이외에 사전 Dataset을 통한 일반적인 질문 답변이 가능합니다.
 <div style='text-align: center'><img src='public/chatbot.png'></div>
-
+# 기술 스택
+<img src='public/stack.png'><br>
 # 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 ECMAScript 6 지원 브라우저 사용
 
