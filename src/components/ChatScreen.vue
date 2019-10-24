@@ -11,6 +11,8 @@
       :open="openChat"
       :close="closeChat"
       :message-styling="messageStyling"
+      :showEmoji="true"
+      :showFile="true"
       :showTypingIndicator="showTypingIndicator"
       @onType="handleOnType"
       @edit="editMessage" 
@@ -84,6 +86,7 @@ export default {
         
         let msg = message.data.text;
         let messageToSend = '';
+        let msgObj = {type: 'text', author: 'user1', data:{ text: ''}};
 
         //메뉴 열기
         let customIntent = this.$store.getters['teachai/getIntent'];
@@ -98,11 +101,16 @@ export default {
           case 2:
             this.eventForm.title = msg.trim();
             messageToSend = '일정의 시간을 알려주세요.'
+            msgObj.suggestions = ['오늘', '내일', '모래', '2019-10-24 17:00']
             break;
           case 1:
-            this.eventForm.start = msg.trim();
             messageToSend = '일정을 추가합니다.'
 
+            Date.prototype.addDays = function(days) {
+              var date = new Date(this.valueOf());
+              date.setDate(date.getDate() + days);
+              return date;
+            }
             let toYYYYMMDDHHMMSS = (dt) => `${
               (dt.getMonth()+1).toString().padStart(2, '0')}/${
               dt.getDate().toString().padStart(2, '0')}/${
@@ -110,6 +118,15 @@ export default {
               dt.getHours().toString().padStart(2, '0')}:${
               dt.getMinutes().toString().padStart(2, '0')}:${
               dt.getSeconds().toString().padStart(2, '0')}`
+            if(msg == '지금') {
+              this.eventForm.start = new Date()
+            } else if(msg == '내일') {
+              this.eventForm.start = new Date().addDays(1)//toYYYYMMDDHHMMSS(new Date().addDays(1))
+            } else if(msg == '모래'){
+              this.eventForm.start = new Date().addDays(2)
+            } else {
+              this.eventForm.start = msg.trim();
+            }
             
             this.eventForm.start = toYYYYMMDDHHMMSS(new Date(this.eventForm.start));
 
@@ -152,7 +169,7 @@ export default {
           
           let filtered = this.$store.getters['contacts/searchContacts']
           
-          messageToSend = `총 ${filtered.length}명을 찾았습니다.`
+          messageToSend = `총 ${filtered.length}명을 찾았습니다. 결과화면으로 이동합니다`
 
           let thee = this
           setTimeout(function(){
@@ -179,8 +196,9 @@ export default {
         }
         this.showTypingIndicator = 'user1'
 
+        msgObj.data.text = messageToSend;
         setTimeout(() => {
-          this.addMessage({type: 'text', author: 'user1', data:{ text: messageToSend}})
+          this.addMessage(msgObj)
           this.showTypingIndicator = ''
         }, 1200);
       }
