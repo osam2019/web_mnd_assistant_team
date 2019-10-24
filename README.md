@@ -13,7 +13,7 @@
 </ul>
 상기 기능들은 아래와 같은 Chatbot 시스템에 의해 관리됩니다.
 상기 기능 이외에 사전 Dataset을 통한 일반적인 질문 답변이 가능합니다.
-<div style='text-align: center'><img src='public/chatbot.PNG'></div>
+<div style='text-align: center'><img src='public/chatbot.png'></div>
 
 # 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 Google Chrome 사용
