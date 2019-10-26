@@ -46,7 +46,7 @@ $ yarn install
 
 #### 서버 시작
 ```bash
-$ yarn run serve
+$ yarn serve
 ```
 
 # 사용법 (Getting Started)
